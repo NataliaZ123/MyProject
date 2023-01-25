@@ -18,7 +18,6 @@ public class Main{
             a = Integer.parseInt(String.valueOf(input.charAt(0)));
 			b = Integer.parseInt(String.valueOf(input.charAt(4)));
 			System.out.println(input);
-			if((a > 10) || (b > 10)){
 				return("throws Exception");
 			}
 			switch (input.charAt(2)){
