@@ -14,6 +14,7 @@ public class Main{
 			if(input.charAt(0) != '"' || input.charAt(input.length()-1) == ' '){
 				throw new MyException();
 			}
+			String str4 = String.valueOf(input.charAt(0));
 			int i = 1;
 			while(input.charAt(i) != '"' && i < 11){
 				str1 += String.valueOf(input.charAt(i));
@@ -61,22 +62,18 @@ public class Main{
 			}
 			switch (str2){
 				case "+":
-						str = str1 + str3;
-						return str;
-						
-						
-				case "-"://неверно тщтщ
+					str = str1 + str3;
+					return (str4 + str + str4);
+				case "-":
 					if(str3.length() > str1.length()){
-						return str1;
+						return (str4 + str1 + str4);
 					}
 					for(int k = 0; k <= str1.length()-str3.length(); k++){
 						if(str1.substring(k, str3.length()+k).equals(str3)){
-							return (str1.substring(0, k) + str1.substring(str3.length()+k, str1.length()));
+							return (str4 + str1.substring(0, k) + str1.substring(str3.length()+k, str1.length()) + str4);
 						}
 					}// проверять подстрочки длиной с str3 в str1 на равенство str3 если равно str это сумма двух подстрок
-					return str1;
-					
-					
+					return (str4 + str1 + str4);
 				case "*":
 					for(int k = 0; k < a; k++){
 						str += str1;
@@ -84,15 +81,11 @@ public class Main{
 					if(str.length() > 40){
 						str = str.substring(0, 40) + "...";
 					}
-					return str;
+					return (str4 + str + str4);
 				case "/":
-					if(a <= str1.length()){
-						str = str1.substring(0, a);
-						return str;
-					}
-					else{
-						throw new MyException();
-					}
+					int p = str1.length()/a;
+					str = str1.substring(0, p);
+					return (str4 + str + str4);
 				default:
 					throw new MyException();
 			}
